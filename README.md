@@ -2,11 +2,13 @@
 
 ## Table of Contents
 
-- Set up the local WordPress site folder
-- Set up the local WordPress theme folder
-- Rename the local WordPress theme
-    + How to search and replace + tips for doing it
-    + Performing the search and replace
+- [Set up the local WordPress site folder](#1-set-up-the-local-wordpress-site-folder)
+- [Set up the local WordPress theme folder](#2-set-up-the-local-wordpress-theme-folder)
+- [Rename the local WordPress theme](#3-rename-the-local-wordpress-theme)
+    + [How to search and replace + tips for doing it](#how-to-search-and-replace--tips-for-doing-it)
+    + [Performing the search and replace](#performing-the-search-and-replace)
+
+------
 
 ### 1. Set up the local WordPress site folder
 
@@ -28,7 +30,8 @@
     - It ignores `node_modules`, and `.sql` files
 1. Rename the `.wp-gitignore` file to `.gitignore`
 1. Save the `.gitignore` at the root of the `example.dev` folder
-    ![finder window showing the files inside example.dev](assets/wp-example-install.jpg)
+
+![finder window showing the files inside example.dev](assets/wp-example-install.jpg)
 
 ### 2. Set up the local WordPress theme folder
 
