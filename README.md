@@ -85,11 +85,82 @@
 ![wordpress theme deleting .git files](assets/wp-theme-function-rename.gif)
 _Renaming functions in the WordPress theme_
 
+#### 4. Setting up your local server
+
+For this step you can use MAMP / Vagrant / Local / etc, the tool does not matter. You just need a local environment that can run WordPress. 
+
+1. Naming of database
+2. WP-config settings
+3. Etc
+
+#### 5. Set up Gulp for the WordPress theme
+
+The `gulpfile.js` and `package.json` follow Ahmed Awais' WPGulp set up. See his notes for more info on setting up: [WP Gulp](https://github.com/ahmadawais/WPGulp#-step-2-editing-the-project-variables).
+
+1. In the `wp-content/themes/example/gulpfile.js` file:
+    - Search for `wp.dev`
+    - Replace with `example.dev` (or whatever your local site URL will be)
+2. Type `npm install` or `sudo npm install` to install the Gulp dependencies for our theme
+3. Once the dependancies download, type `gulp` to test it out
+
+#### 6. Setting up a remote Bitbucket repository
+
+1. Set up remote repo
+2. Locally, add remotes
+3. Push local work to remote repo
+
+-----
+
+### Whew! 
+
+At this stage, your WordPress development environment is set up. All code will be stored in a private Bitbucket repository. 
+
+The steps above may seem like a lot, but a lot of them are tiny things like renaming a folder, or deleting a file. The initial setup listed above takes me about fifteen minutes. 
+
+
 ### Setting up (WP admin)
 
 1. Remove the "Just another WordPress site" from Settings > General ![wordpress admin general settings](assets/wp-general-settings.jpg)
+2. Install WP development plugins
+3. Create user account for client (use dummy email)
+4. Create user account for me
+
+### Set up WPEngine staging site
+
+1. Enable git push WPEngine site
+2. Add remote
+
+#### About the starter theme
+
+1. File structure
+
+#### Best practices and strategies
+
+1. All templates should be built to be as flexible / re-usable as possible. 
 
 
+#### Security & Translation
 
-### Functions
+- All strings should be formatted like this:
+```
+GOOD: <h1><?php esc_html_e('Events', 'example');?></h1>
+
+BAD: <h1>Events</h1>
+```
+- The `_e` part of the function ensures the content is available for translation. 
+- The `'example'` part of the function is the text domain (theme name)
+- Learn more: [Codex: esc_html_e](https://codex.wordpress.org/Function_Reference/esc_html_e), [Codex: esc_html](https://codex.wordpress.org/Function_Reference/esc_html)
+- 
+
+#### Functions
+
+
+#### ACF Best practices
+
+1. All image fields should use the `id` return option.
+2. All ACF functions should be wrapped in the ` if function_exists('get_field')` function
+3. All field data should be stored in a variable
+    - using the variable instead of `get_field('field_name')` every time reduces calls to the database and keeps code organized
+    -  
+
 
